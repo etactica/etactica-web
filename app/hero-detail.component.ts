@@ -26,6 +26,6 @@ export class HeroDetailComponent {
   constructor(private _heroService: HeroService) {
   }
     postHero(hero) {
-    this._heroService.postHeroes(hero);
+    this._heroService.putHeroes(hero);
   }
 }

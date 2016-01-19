@@ -24,7 +24,7 @@ export class HeroService {
 		.map(res => res.json())
 		.subscribe(res => {this.hero = res.json});
 		}
-
+/*
     postHeroes(hero: Hero){
     	console.log(hero);
     	console.log(JSON.stringify(hero));
@@ -38,7 +38,7 @@ export class HeroService {
 			.map(res => res.json())
 			.subscribe(res => {this.hero = res.json});
 	}
-
+*/
 	/*
 	updateHero(id: number, hero: Hero) {
 		return this.http.put('http://localhost:8888/list_of_heroes/' + id, 'PUT', hero);
