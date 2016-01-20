@@ -24,24 +24,27 @@ export class HeroService {
 		.map(res => res.json())
 		.subscribe(res => {this.hero = res.json});
 		}
-/*
+
     postHeroes(hero: Hero){
-    	console.log(hero);
     	console.log(JSON.stringify(hero));
 
 		var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 
-    	this.http.post('http://localhost:8888/list_of_heroes/', 
+    	this.http.post('http://192.168.1.107:8888/list_of_heroes', 
 			JSON.stringify(hero),
 			{headers:headers})
 			.map(res => res.json())
 			.subscribe(res => {this.hero = res.json});
 	}
-*/
-	/*
-	updateHero(id: number, hero: Hero) {
-		return this.http.put('http://localhost:8888/list_of_heroes/' + id, 'PUT', hero);
-	}*/
+
+
+	deleteHeroes(hero: Hero) {
+		console.log('Delete hero nr: ' + hero.id);
+		console.log('From this URL: ' + 'http://localhost:8888/list_of_heroes/' + hero.id);
+
+		 this.http.delete('http://localhost:8888/list_of_heroes/' + hero.id);
+
+	}
 }
 
