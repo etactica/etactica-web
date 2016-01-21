@@ -11,7 +11,15 @@ export class HeroService {
     }
 
     getHeroes() {
-        return this.http.get('http://localhost:8888/list_of_heroes/').map((data) => data.json())
+        var data = [{
+            "id": 123,
+            "name": "Maggi",
+            "details": "details",
+            "ranking": 1
+        }];
+        return data;
+        //return data.map(x=>x);
+        //return this.http.get('http://localhost:8888/list_of_heroes/').map((data) => data.json())
     }
 
     putHero(hero:Hero) {
