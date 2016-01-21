@@ -123,4 +123,3 @@ export class AppComponent implements OnInit {
 
     onSelect(hero: Hero) { this.selectedHero = hero; }
 }
-

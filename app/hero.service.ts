@@ -1,5 +1,4 @@
 import {Hero} from './hero';
-import {HEROES} from './mock-heroes';
 import {Injectable} from 'angular2/core';
 import {Http, Headers} from 'angular2/http';
 import 'rxjs/Rx';
