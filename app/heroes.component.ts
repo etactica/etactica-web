@@ -36,7 +36,7 @@ import {Http} from 'angular2/http';
     margin: 0 4em 2em 0;
     list-style-type: none;
     padding: 0;
-    width: 10em;
+    width: 16em;
     display: inline-block;
     float: left;
   }
@@ -71,6 +71,7 @@ import {Http} from 'angular2/http';
     line-height: 1em;
     position: relative;
     left: -1px;
+    width: 2em;
     top: -4px;
     height: 1.8em;
     margin-right: .8em;
