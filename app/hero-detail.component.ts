@@ -4,7 +4,7 @@ import {HeroService} from './hero.service';
 
 
 @Component({
-    selector: 'my-hero-detail',
+    selector: 'hero-detail',
     template: `
     <div class="cont" *ngIf="hero">
       <h2>{{hero.name}} details!</h2>
@@ -18,14 +18,14 @@ import {HeroService} from './hero.service';
          <input [(ngModel)]="hero.details" placeholder="details"/>
       </div>
       <div><label>ranking: </label>{{hero.ranking}}</div>
-      <img (click)="readRainbow(hero)" src="app/images/Like.png" />
-      <img class="dislike" (click)="readRaindrop(hero)" src="app/images/Like.png" /><br>
-      <button (click)="putHero(hero)">Update</button>
-      <button (click)="delHero(hero)">Delete</button>
+      <img (click)="likeHero()" src="app/images/Like.png" />
+      <img class="dislike" (click)="dislikeHero()" src="app/images/Like.png" /><br>
+      <button (click)="putHero()">Update</button>
+      <button (click)="deleteHero()">Delete</button>
     </div>
 
   `,
-  styles:[`
+    styles: [`
     .cont{
       display: inline-block;
     }
@@ -74,28 +74,30 @@ import {HeroService} from './hero.service';
     img:hover{
       background-color: #cfd8dc;
     }
-  `]
+  `],
     inputs: ['hero']
 })
 export class HeroDetailComponent {
-    public hero: Hero;
+    public hero:Hero;
 
-  constructor(private _heroService: HeroService) {
-  }
-    putHero(hero) {
-    this._heroService.putHeroes(hero);
-  }
-  delHero(hero) {
-    console.log(hero);
-    this._heroService.deleteHeroes(hero);
-  }
+    constructor(private _heroService:HeroService) {
+    }
 
-    readRainbow(hero: Hero) { 
-        hero.ranking++;
-    
-  }
-  readRaindrop(hero: Hero) { 
-        hero.ranking--;
-    
-  }
+    putHero() {
+        console.log('put from detail component');
+        this._heroService.putHero(this.hero).subscribe(hero => this.hero = undefined);
+    }
+
+    deleteHero() {
+        console.log('delete hero from detail component');
+        this._heroService.deleteHero(this.hero).subscribe(result => console.log(result));
+    }
+
+    likeHero() {
+        this.hero.ranking++;
+    }
+
+    dislikeHero() {
+        this.hero.ranking--;
+    }
 }

@@ -1,5 +1,4 @@
 import {Component, OnInit} from 'angular2/core';
-import {Router} from 'angular2/router';
 import {HeroService} from './hero.service';
 import {HeroDetailComponent} from './hero-detail.component';
 import {Hero} from './hero';
@@ -7,10 +6,10 @@ import {Http} from 'angular2/http';
 
 
 @Component({
-  selector: 'my-heroes',
-  template:` 
+    selector: 'heroes',
+    template: `
     <div>
-    <h2>My Heroes</h2>
+    <h2>Heroes</h2>
     <ul class="heroes">
       <li *ngFor="#hero of heroes"
         [class.selected]="hero === selectedHero"
@@ -18,12 +17,11 @@ import {Http} from 'angular2/http';
         <span class="badge">{{hero.ranking}}</span> {{hero.name}}
       </li>
     </ul>
-    <my-hero-detail [hero]="selectedHero"></my-hero-detail>
+    <hero-detail [hero]="selectedHero"></hero-detail>
   </div>
 `
-,
-  styles:
-  [`
+    ,
+    styles: [`
   .selected {
     background-color: #CFD8DC !important;
     color: white;
@@ -92,23 +90,29 @@ import {Http} from 'angular2/http';
   }
 
 `],
-  directives: [HeroDetailComponent]
+    directives: [HeroDetailComponent],
+    providers: [HeroService]
 })
 export class HeroesComponent implements OnInit {
-    public heroes: Hero[];
-    public selectedHero: Hero;
+    public heroes:Hero[];
+    public selectedHero:Hero;
 
-    constructor(private _heroService: HeroService, private _router: Router) { }
+    constructor(private _heroService:HeroService) {
+    }
 
     getHeroes() {
-        this._heroService.getHeroes().subscribe(heroes => { this.heroes = heroes });
+        this._heroService.getHeroes().subscribe(heroes => {
+            this.heroes = heroes
+        });
     }
 
     ngOnInit() {
         this.getHeroes();
     }
 
-    onSelect(hero: Hero) { this.selectedHero = hero; }
+    onSelect(hero:Hero) {
+        this.selectedHero = hero;
+    }
 }
 
 

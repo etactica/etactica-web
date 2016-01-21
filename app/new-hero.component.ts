@@ -4,8 +4,8 @@ import {Hero} from './hero';
 import {HeroService} from './hero.service';
 
 @Component({
-	selector: 'new-hero',
-	template:`
+    selector: 'new-hero',
+    template: `
 
 	<div class="container">
 	  <div [hidden]="submitted">
@@ -25,10 +25,10 @@ import {HeroService} from './hero.service';
 	      </div>
 
 	      <div class="form-group">
-	        <label for="description">Description</label>
+	        <label for="details">Description</label>
 	        <input type="text" 
-	          [(ngModel)]="herro.description"
-	            ngControl="description" >
+	          [(ngModel)]="herro.details"
+	            ngControl="details" >
 	      </div>
 
 	      <div class="form-group">
@@ -46,14 +46,14 @@ import {HeroService} from './hero.service';
 	    <h2>You created this hero!</h2>
 	    <div class="labs">
 			<div><label>Name: </label>{{herro.name}}</div>
-			<div><label>Description: </label>{{herro.description}}</div>
+			<div><label>Description: </label>{{herro.details}}</div>
 			<div><label>Ranking: </label>{{herro.ranking}}</div>
 		    <button class="btn btn-default" (click)="submitted=false">Edit</button>
 	    </div>
 	  </div>
 	</div>
 	`,
-	 styles:[`
+    styles: [`
 		label {
 			display: inline-block;
 			width: 4em;
@@ -88,23 +88,19 @@ import {HeroService} from './hero.service';
 
   `]
 })
-export class NewHeroComponent{
+export class NewHeroComponent {
 
-	constructor(private _heroService: HeroService) {
-	}
+    constructor(private _heroService:HeroService) {
+    }
 
-	public herro: Hero{
-		id: 1,
-		name: 'Dr Q',
-		description: 'Is a unicorn',
-		ranking: 2
+    submitted = false;
 
-	};
+    onSubmit() {
+        this.submitted = true;
+    }
 
-	submitted = false;
-  	onSubmit() { this.submitted = true; }
-  	addHero(hero: Hero){
-  		console.log(hero);
-  		this._heroService.postHeroes(hero);
-  	}
+    addHero(hero:Hero) {
+        console.log(hero);
+        this._heroService.postHero(hero);
+    }
 }
