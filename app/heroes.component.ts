@@ -19,8 +19,7 @@ import {Http} from 'angular2/http';
     </ul>
     <hero-detail [hero]="selectedHero"></hero-detail>
   </div>
-`
-    ,
+`,
     styles: [`
   .selected {
     background-color: #CFD8DC !important;
