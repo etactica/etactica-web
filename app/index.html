@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Angular 2 QuickStart</title>
+    <title>My Heroes</title>
     <script>document.write('<base href="/">');</script>
     <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>
     <script src="https://code.angularjs.org/tools/system.js"></script>
     <script src="https://code.angularjs.org/tools/typescript.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>
     <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>
-    <script src="node_modules/jquery/dist/jquery.js"></script>
-    <script src="node_modules/angular2/bundles/http.js"></script>
-      <script src="https://code.angularjs.org/2.0.0-beta.0/router.dev.js"></script>
+    <script src="../node_modules/angular2/bundles/http.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.0/router.dev.js"></script>
 
     <script>
         System.config({
@@ -18,7 +17,7 @@
             typescriptOptions: { emitDecoratorMetadata: true },
             packages: {'app': {defaultExtension: 'ts'}}
         });
-        System.import('app/boot')
+        System.import('boot')
                 .then(null, console.error.bind(console));
     </script>
 </head>

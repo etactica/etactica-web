@@ -25,14 +25,12 @@ export class HeroService {
     postHero(hero:Hero) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        console.log('post hero');
         return this.http.post('http://localhost:8888/list_of_heroes',
             JSON.stringify(hero),
             {headers: headers});
     }
 
     deleteHero(hero:Hero) {
-        console.log('delete hero from hero service');
         return this.http.delete('http://localhost:8888/list_of_heroes/' + hero.id);
     }
 }
