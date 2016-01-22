@@ -8,16 +8,24 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var imageMin = require('gulp-imagemin');
 var less = require('gulp-less');
+var typescript = require('gulp-tsc');
+
+gulp.task('compile', function(){
+    gulp.src(['app/**/*.ts'])
+        .pipe(typescript())
+        .pipe(gulp.dest('built/'))
+});
 
 gulp.task('images', function(){
     gulp.src(['src/img/**.*'])
         .pipe(imageMin())
         .pipe(gulp.dest('dist/img'))
         .pipe(browserSync.stream());
-})
+});
+
 // Þetta þarf að tengja við ts.
 gulp.task('scripts', function(){
-    gulp.src(['built/*.js'])
+    gulp.src(['built/**/*.js'])
         .pipe(sourcemaps.init())
         .pipe(uglify())
         .pipe(sourcemaps.write())
@@ -39,10 +47,9 @@ gulp.task('default', function(){
     browserSync.init({
         server: './'
     });
-
-//    gulp.watch('src/**/*', browserSync.reload);
     gulp.watch('src/styles/**/*.less', ['styles']);
     gulp.watch('app/**/*.less', ['styles']);
+    //gulp.watch('app/**/*.ts', ['compile', 'scripts']);
     gulp.watch('src/img/**/*', ['images']);
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('built/*.js', ['scripts']);
