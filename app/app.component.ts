@@ -95,5 +95,5 @@ import {HeroesComponent} from './heroes.component';
 })
 
 export class AppComponent {
-    public title = 'Tour of Heroes';
+    public title = 'Tour of Heroes - !!';
 }
