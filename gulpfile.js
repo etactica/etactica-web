@@ -7,6 +7,7 @@ var cssnano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var imageMin = require('gulp-imagemin');
+var less = require('gulp-less');
 
 gulp.task('images', function(){
     gulp.src(['src/img/**.*'])
@@ -25,8 +26,9 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('styles', function() {
-    gulp.src('src/styles/**/*.css')
+    gulp.src('src/styles/**/*.less')
         .pipe(sourcemaps.init())
+        .pipe(less())
         .pipe(cssnano())
         .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/styles'))
@@ -39,7 +41,7 @@ gulp.task('default', function(){
     });
 
 //    gulp.watch('src/**/*', browserSync.reload);
-    gulp.watch('src/styles/**/*', ['styles']);
+    gulp.watch('src/styles/**/*.less', ['styles']);
     gulp.watch('src/img/**/*', ['images']);
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('built/*.js', ['scripts']);
