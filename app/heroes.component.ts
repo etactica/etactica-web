@@ -19,8 +19,7 @@ import {Http} from 'angular2/http';
     </ul>
     <hero-detail [hero]="selectedHero"></hero-detail>
   </div>
-`
-    ,
+`,
     styles: [`
   .selected {
     background-color: #CFD8DC !important;
@@ -102,9 +101,12 @@ export class HeroesComponent implements OnInit {
     }
 
     getHeroes() {
+        this.heroes = this._heroService.getHeroes();
+/*
         this._heroService.getHeroes().subscribe(heroes => {
             this.heroes = heroes
         });
+*/
     }
 
     ngOnInit() {
