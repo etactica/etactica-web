@@ -104,22 +104,6 @@ import {HeroesComponent} from './heroes.component';
     {path: '/newhero', name: 'NewHero', component: NewHeroComponent},
     {path: '/heroes', name: 'Heroes', component: HeroesComponent}
 ])
-export class AppComponent implements OnInit {
+export class AppComponent {
     public title = 'Tour of Heroes';
-    public heroes: Hero[];
-    public selectedHero: Hero;
-
-    constructor(private _heroService: HeroService) { }
-
-    getHeroes() {
-        this._heroService.getHeroes().subscribe(heroes => { this.heroes = heroes });
-    }
-    addHero(){
-
-    }
-    ngOnInit() {
-        this.getHeroes();
-    }
-
-    onSelect(hero: Hero) { this.selectedHero = hero; }
 }
