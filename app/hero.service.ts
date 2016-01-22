@@ -34,4 +34,3 @@ export class HeroService {
         return this.http.delete('http://localhost:8888/list_of_heroes/' + hero.id);
     }
 }
-

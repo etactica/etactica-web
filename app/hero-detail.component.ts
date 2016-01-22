@@ -18,12 +18,11 @@ import {HeroService} from './hero.service';
          <input [(ngModel)]="hero.details" placeholder="details"/>
       </div>
       <div><label>ranking: </label>{{hero.ranking}}</div>
-      <img (click)="likeHero()" src="app/images/Like.png" />
-      <img class="dislike" (click)="dislikeHero()" src="app/images/Like.png" /><br>
+      <img (click)="likeHero()" src="dist/img/like.png" />
+      <img class="dislike" (click)="dislikeHero()" src="dist/img/like.png" /><br>
       <button (click)="putHero()">Update</button>
       <button (click)="deleteHero()">Delete</button>
     </div>
-
   `,
     styles: [`
     .cont{
@@ -84,12 +83,10 @@ export class HeroDetailComponent {
     }
 
     putHero() {
-        console.log('put from detail component');
         this._heroService.putHero(this.hero).subscribe(hero => this.hero = undefined);
     }
 
     deleteHero() {
-        console.log('delete hero from detail component');
         this._heroService.deleteHero(this.hero).subscribe(result => console.log(result));
     }
 
