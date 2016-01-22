@@ -42,6 +42,7 @@ gulp.task('default', function(){
 
 //    gulp.watch('src/**/*', browserSync.reload);
     gulp.watch('src/styles/**/*.less', ['styles']);
+    gulp.watch('app/**/*.less', ['styles']);
     gulp.watch('src/img/**/*', ['images']);
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('built/*.js', ['scripts']);

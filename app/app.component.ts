@@ -5,6 +5,7 @@ import {HeroDetailComponent} from './hero-detail.component';
 import {HeroService} from './hero.service';
 import {NewHeroComponent} from './new-hero.component';
 import {HeroesComponent} from './heroes.component';
+import {LlamaComponent} from './llama/llama.component';
 
 
 @Component({
@@ -15,6 +16,7 @@ import {HeroesComponent} from './heroes.component';
     <a [routerLink]="['Heroes']">Heroes</a>
     <a [routerLink]="['NewHero']">New Hero</a>
     <router-outlet></router-outlet>
+    <llama></llama>
 
   `,
     styles:[`
@@ -97,7 +99,7 @@ import {HeroesComponent} from './heroes.component';
     button { padding: 0.2em; font-size: 14px}
     * { font-family: Arial; }
   `],
-    directives: [HeroDetailComponent, ROUTER_DIRECTIVES],
+    directives: [HeroDetailComponent, LlamaComponent, ROUTER_DIRECTIVES],
     providers: [HeroService]
 })
 @RouteConfig([
