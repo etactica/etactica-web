@@ -26,7 +26,7 @@ gulp.task('scripts', function(){
 });
 
 gulp.task('styles', function() {
-    gulp.src('src/styles/**/*.less')
+    gulp.src('src/styles/**/main.less')
         .pipe(sourcemaps.init())
         .pipe(less())
         .pipe(cssnano())

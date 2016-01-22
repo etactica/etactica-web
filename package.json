@@ -19,6 +19,7 @@
     "zone.js": "0.5.10"
   },
   "devDependencies": {
+    "bootstrap": "^3.3.6",
     "browser-sync": "^2.11.1",
     "concurrently": "^1.0.0",
     "gulp": "^3.9.0",
