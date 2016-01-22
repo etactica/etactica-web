@@ -1,10 +1,10 @@
 import {Component, OnInit} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import {Hero} from './hero';
-import {HeroDetailComponent} from './hero-detail.component';
-import {HeroService} from './hero.service';
-import {NewHeroComponent} from './new-hero.component';
-import {HeroesComponent} from './heroes.component';
+import {Hero} from './shared/hero';
+import {HeroDetailComponent} from './hero-detail/hero-detail.component';
+import {HeroService} from './shared/hero.service';
+import {NewHeroComponent} from './new-hero/new-hero.component';
+import {HeroesComponent} from './heroes/heroes.component.ts';
 
 
 @Component({
