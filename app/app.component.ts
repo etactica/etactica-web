@@ -1,5 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
+import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import {Hero} from './hero';
+import {HeroDetailComponent} from './hero-detail.component';
 import {HeroService} from './hero.service';
 import {NewHeroComponent} from './new-hero.component';
 import {HeroesComponent} from './heroes.component';
@@ -9,7 +11,11 @@ import {HeroesComponent} from './heroes.component';
     selector: 'my-app',
     template:`
     <h1>{{title}}</h1>
-    <heroes></heroes>
+
+    <a [routerLink]="['Heroes']">Heroes</a>
+    <a [routerLink]="['NewHero']">New Hero</a>
+    <router-outlet></router-outlet>
+
   `,
     styles:[`
     .selected {
@@ -91,9 +97,29 @@ import {HeroesComponent} from './heroes.component';
     button { padding: 0.2em; font-size: 14px}
     * { font-family: Arial; }
   `],
-    directives: [HeroesComponent]
+    directives: [HeroDetailComponent, ROUTER_DIRECTIVES],
+    providers: [HeroService]
 })
+@RouteConfig([
+    {path: '/newhero', name: 'NewHero', component: NewHeroComponent},
+    {path: '/heroes', name: 'Heroes', component: HeroesComponent}
+])
+export class AppComponent implements OnInit {
+    public title = 'Tour of Heroes';
+    public heroes: Hero[];
+    public selectedHero: Hero;
 
-export class AppComponent {
-    public title = 'Tour of Heroes - !!';
+    constructor(private _heroService: HeroService) { }
+
+    getHeroes() {
+        this._heroService.getHeroes().subscribe(heroes => { this.heroes = heroes });
+    }
+    addHero(){
+
+    }
+    ngOnInit() {
+        this.getHeroes();
+    }
+
+    onSelect(hero: Hero) { this.selectedHero = hero; }
 }

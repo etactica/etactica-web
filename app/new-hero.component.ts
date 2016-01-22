@@ -16,7 +16,7 @@ import {HeroService} from './hero.service';
 	      <div class="form-group">
 	        <label for="name">Name</label>
 	        <input type="text"
-	          [(ngModel)]="herro.name"
+	          [(ngModel)]="hero.name"
 	            ngControl="name"  #name="ngForm" >
 
 	        <div [hidden]="name.valid" class="alert alert-danger">
@@ -25,29 +25,29 @@ import {HeroService} from './hero.service';
 	      </div>
 
 	      <div class="form-group">
-	        <label for="details">Description</label>
+	        <label for="details">Details</label>
 	        <input type="text" 
-	          [(ngModel)]="herro.details"
+	          [(ngModel)]="hero.details"
 	            ngControl="details" >
 	      </div>
 
 	      <div class="form-group">
 	        <label for="ranking">Ranking</label>
 	        <input type="text" 
-	          [(ngModel)]="herro.ranking"
+	          [(ngModel)]="hero.ranking"
 	            ngControl="ranking" >
 	      </div>
 
 	      <button type="submit" class="btn btn-default"
-	              [disabled]="!heroForm.form.valid" (click)="addHero(herro)">Submit</button>
+	              [disabled]="!heroForm.form.valid" (click)="addHero(hero)">Submit</button>
 	    </form>
 	  </div>
 	  <div [hidden]="!submitted">
 	    <h2>You created this hero!</h2>
 	    <div class="labs">
-			<div><label>Name: </label>{{herro.name}}</div>
-			<div><label>Description: </label>{{herro.details}}</div>
-			<div><label>Ranking: </label>{{herro.ranking}}</div>
+			<div><label>Name: </label>{{hero.name}}</div>
+			<div><label>Description: </label>{{hero.details}}</div>
+			<div><label>Ranking: </label>{{hero.ranking}}</div>
 		    <button class="btn btn-default" (click)="submitted=false">Edit</button>
 	    </div>
 	  </div>
@@ -90,7 +90,13 @@ import {HeroService} from './hero.service';
 })
 export class NewHeroComponent {
 
+
+    hero = new Hero(1, '', '', null);
+
+
     constructor(private _heroService:HeroService) {
+
+
     }
 
     submitted = false;
@@ -100,7 +106,6 @@ export class NewHeroComponent {
     }
 
     addHero(hero:Hero) {
-        console.log(hero);
-        this._heroService.postHero(hero);
+        this._heroService.postHero(hero).subscribe(res => {this.hero = hero})
     }
 }

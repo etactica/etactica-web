@@ -1,5 +1,4 @@
 import {Hero} from './hero';
-import {HEROES} from './mock-heroes';
 import {Injectable} from 'angular2/core';
 import {Http, Headers} from 'angular2/http';
 import 'rxjs/Rx';
@@ -11,15 +10,16 @@ export class HeroService {
     }
 
     getHeroes() {
+        /*
         var data = [{
             "id": 123,
             "name": "Maggi",
             "details": "details",
             "ranking": 1
         }];
-        return data;
+        return data;*/
         //return data.map(x=>x);
-        //return this.http.get('http://localhost:8888/list_of_heroes/').map((data) => data.json())
+        return this.http.get('http://localhost:8888/list_of_heroes/').map((data) => data.json())
     }
 
     putHero(hero:Hero) {
@@ -34,16 +34,15 @@ export class HeroService {
     postHero(hero:Hero) {
         var headers = new Headers();
         headers.append('Content-Type', 'application/json');
-
-        this.http.post('http://localhost:8888/list_of_heroes/',
+        console.log('post hero');
+        return this.http.post('http://localhost:8888/list_of_heroes',
             JSON.stringify(hero),
-            {headers: headers})
-            .map(res => res.json());
+            {headers: headers});
     }
 
     deleteHero(hero:Hero) {
         console.log('delete hero from hero service');
-        this.http.delete('http://localhost:8888/list_of_heroes/' + hero.id);
+        return this.http.delete('http://localhost:8888/list_of_heroes/' + hero.id);
     }
 }
 
