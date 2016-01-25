@@ -1,3 +1,4 @@
+import {it, describe, expect, beforeEach, inject} from 'angular2/testing';
 import {Hero} from './hero';
     describe('Hero', () => {
         it('has the id given in the constructor', function() {
