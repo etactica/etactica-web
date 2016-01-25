@@ -21,4 +21,8 @@ export class LlamaComponent implements OnInit {
         this.llama =
             this.llamaService.random();
     }
+
+    clicked(){
+        console.log("jamm og jojojo");
+    }
 }
