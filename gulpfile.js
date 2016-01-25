@@ -33,6 +33,12 @@ gulp.task('scripts', function(){
         .pipe(browserSync.stream());
 });
 
+// when .ts files have been converted to .js
+gulp.task('scrpt', function(){
+    gulp.src(['built/**/*.js'])
+        .pipe(browserSync.stream());
+});
+
 gulp.task('styles', function() {
     gulp.src('src/styles/**/main.less')
         .pipe(sourcemaps.init())
@@ -52,6 +58,7 @@ gulp.task('default', function(){
     //gulp.watch('app/**/*.ts', ['compile', 'scripts']);
     gulp.watch('src/img/**/*', ['images']);
     gulp.watch('*.html', browserSync.reload);
+    gulp.watch('built/**/*.js', ['scrpt']);
     gulp.watch('built/*.js', ['scripts']);
 });
 
