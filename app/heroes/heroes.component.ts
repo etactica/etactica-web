@@ -16,6 +16,9 @@ export class HeroesComponent implements OnInit {
     public selectedHero:Hero;
 
     constructor(private _heroService:HeroService) {
+        console.log('hohoho')
+        this.getHero(6);
+
     }
 
     getHeroes() {
@@ -30,5 +33,14 @@ export class HeroesComponent implements OnInit {
 
     onSelect(hero:Hero) {
         this.selectedHero = hero;
+    }
+
+    getHero(id:number){
+        console.log('getHero');
+        this._heroService.getHero(id).subscribe(hero => {
+            console.log('just got Hero');
+
+            console.log(hero);
+        });
     }
 }
