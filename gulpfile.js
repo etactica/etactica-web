@@ -64,11 +64,14 @@ gulp.task('run', function(){
     //gulp.src(['app/**/*.ts'])
     //    .pipe(typescript())
     //    .pipe(gulp.dest('built/'));
-    gulp.run(['default']);
-
+    startup();
 })
 
 gulp.task('default', function(){
+    startup();
+});
+
+function startup(){
     browserSync.init({
         server: './'
     });
@@ -79,5 +82,5 @@ gulp.task('default', function(){
     gulp.watch('*.html', browserSync.reload);
     gulp.watch('built/**/*.js', ['scrpt']);
     gulp.watch('built/*.js', ['scripts']);
-});
+}
 
