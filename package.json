@@ -2,7 +2,8 @@
   "name": "etactica-web",
   "version": "1.0.0",
   "scripts": {
-    "start": "tsc",
+    "start": "concurrent \"npm run tsc:w\" \"npm run lite\" ",
+    "_start": "tsc",
     "__start": "http-server -c-1 -o -p 8875 .",
     "tsc": "tsc",
     "tsc:w": "tsc -w",

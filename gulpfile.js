@@ -49,6 +49,25 @@ gulp.task('styles', function() {
         .pipe(browserSync.stream());
 });
 
+gulp.task('run', function(){
+    gulp.src(['src/img/**.*'])
+        .pipe(imageMin())
+        .pipe(gulp.dest('dist/img'));
+
+    gulp.src('src/styles/**/main.less')
+        .pipe(sourcemaps.init())
+        .pipe(less())
+        .pipe(cssnano())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('./dist/styles'));
+
+    //gulp.src(['app/**/*.ts'])
+    //    .pipe(typescript())
+    //    .pipe(gulp.dest('built/'));
+    gulp.run(['default']);
+
+})
+
 gulp.task('default', function(){
     browserSync.init({
         server: './'
