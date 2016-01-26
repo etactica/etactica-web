@@ -8,7 +8,6 @@ import {Http} from 'angular2/http';
 @Component({
     selector: 'heroes',
     templateUrl: './app/heroes/heroes.html',
-    styleUrls: ['./app/heroes/heroes.less'],
     directives: [HeroDetailComponent],
     providers: [HeroService]
 })
@@ -33,5 +32,3 @@ export class HeroesComponent implements OnInit {
         this.selectedHero = hero;
     }
 }
-
-

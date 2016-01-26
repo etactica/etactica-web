@@ -5,7 +5,7 @@ import {Llama} from "./llama";
 
 @Component({
     selector: 'llama',
-    templateUrl: './app/llama/template.html',
+    templateUrl: './app/llama/llama.html',
     providers: [LlamaService]
 })
 

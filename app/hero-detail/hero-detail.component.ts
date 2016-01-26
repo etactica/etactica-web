@@ -6,7 +6,6 @@ import {HeroService} from './../shared/hero.service';
 @Component({
     selector: 'hero-detail',
     templateUrl: './app/hero-detail/hero-detail.html',
-    stylesUrls: ['./app/hero-detail/hero-detail.less'],
     inputs: ['hero']
 })
 export class HeroDetailComponent {

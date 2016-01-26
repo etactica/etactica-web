@@ -5,8 +5,7 @@ import {HeroService} from './../shared/hero.service';
 
 @Component({
     selector: 'new-hero',
-    templateUrl: './app/new-hero/new-hero.html',
-    stylesUrls: ['./app/new-hero/new-hero.less']
+    templateUrl: './app/new-hero/new-hero.html'
 })
 export class NewHeroComponent {
     hero = new Hero(1, '', '', null);
