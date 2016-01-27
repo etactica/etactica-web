@@ -1,0 +1,33 @@
+{
+  "rules": {
+    "class-name": true,
+    "comment-format": [true, "check-space"],
+    "eofline": true,
+    "indent": [true, "spaces"],
+    "max-line-length": [true, 140],
+    "member-ordering": [true, "variables-before-functions"],
+    "no-arg": true,
+    "no-consecutive-blank-lines": true,
+    "no-console": [true, "log", "warn", "error"],
+    "no-duplicate-variable": true,
+    "no-eval": true,
+    "no-trailing-whitespace": true,
+    "no-unreachable": true,
+    "no-unused-expression": true,
+    "no-unused-variable": true,
+    "no-use-before-declare": true,
+    "quotemark": [true, "single", "avoid-escape"],
+    "semicolon": true,
+    "triple-equals": [true, "allow-null-check"],
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-type",
+      "check-typecast"
+    ]
+  }
+}
