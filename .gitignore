@@ -35,9 +35,6 @@ node_modules
 # WebStorm
 .idea/*
 !/.idea/codeStyleSettings.xml
-!/.idea/inspectionProfiles/
-/.idea/inspectionProfiles/*
-!/.idea/inspectionProfiles/Project_Default.xml
 
 # Compiled JavaScript files
 built
