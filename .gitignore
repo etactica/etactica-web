@@ -33,7 +33,11 @@ node_modules
 .node_repl_history
 
 # WebStorm
-.idea
+.idea/*
+!/.idea/codeStyleSettings.xml
+!/.idea/inspectionProfiles/
+/.idea/inspectionProfiles/*
+!/.idea/inspectionProfiles/Project_Default.xml
 
 # Compiled JavaScript files
 built
