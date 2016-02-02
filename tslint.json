@@ -19,11 +19,11 @@
     "quotemark": [true, "single", "avoid-escape"],
     "semicolon": true,
     "triple-equals": [true, "allow-null-check"],
+    "variable-name": [true, "ban-keywords", "check-format"],
     "whitespace": [
       true,
       "check-branch",
       "check-decl",
-      "check-operator",
       "check-module",
       "check-separator",
       "check-type",
